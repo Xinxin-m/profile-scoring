@@ -1,0 +1,264 @@
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "login",
+  "repo_classes",
+  "scores",
+  "vibe_deduction",
+  "total",
+  "vibe_coded_pct",
+  "pre_ai_applicable",
+  "confidence",
+  "tags",
+  "exceptional",
+  "headline",
+  "evidence",
+  "against",
+  "ask_for"
+ ],
+ "properties": {
+  "login": {
+   "type": "string"
+  },
+  "repo_classes": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "repo",
+     "class",
+     "why"
+    ],
+    "properties": {
+     "repo": {
+      "type": "string"
+     },
+     "class": {
+      "type": "string",
+      "enum": [
+       "original-engineering",
+       "original-small",
+       "coursework",
+       "tutorial-follow",
+       "fork-derivative",
+       "template-scaffold",
+       "curation-docs",
+       "generated-oneshot"
+      ]
+     },
+     "why": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "scores": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "quality",
+    "complexity",
+    "activity",
+    "pre_ai",
+    "traction",
+    "domain"
+   ],
+   "properties": {
+    "quality": {
+     "type": "integer"
+    },
+    "complexity": {
+     "type": "integer"
+    },
+    "activity": {
+     "type": "integer"
+    },
+    "pre_ai": {
+     "type": "integer"
+    },
+    "traction": {
+     "type": "integer"
+    },
+    "domain": {
+     "type": "integer"
+    }
+   }
+  },
+  "vibe_deduction": {
+   "type": "integer"
+  },
+  "total": {
+   "type": "integer"
+  },
+  "vibe_coded_pct": {
+   "type": "integer"
+  },
+  "pre_ai_applicable": {
+   "type": "boolean"
+  },
+  "confidence": {
+   "type": "string",
+   "enum": [
+    "high",
+    "medium",
+    "low"
+   ]
+  },
+  "tags": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "specialty",
+     "level"
+    ],
+    "properties": {
+     "specialty": {
+      "type": "string",
+      "enum": [
+       "frontend",
+       "design-engineering",
+       "fullstack",
+       "backend",
+       "infra-devops",
+       "systems-low-level",
+       "ml-research",
+       "ml-engineering",
+       "data-science",
+       "crypto-web3",
+       "security",
+       "robotics",
+       "gaming-graphics",
+       "mobile",
+       "devtools",
+       "scientific-computing",
+       "technical-education",
+       "insufficient-evidence",
+       "vibe-coder-frontend",
+       "vibe-coder-fullstack",
+       "vibe-coder-ai-apps",
+       "vibe-coder-data",
+       "vibe-coder-tooling"
+      ]
+     },
+     "level": {
+      "type": "string",
+      "enum": [
+       "L1",
+       "L2",
+       "L3",
+       "L4",
+       "L5",
+       "n/a"
+      ]
+     }
+    }
+   }
+  },
+  "exceptional": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "tier",
+    "metrics",
+    "reach_non_code",
+    "note"
+   ],
+   "properties": {
+    "tier": {
+     "type": "string",
+     "enum": [
+      "none",
+      "notable",
+      "exceptional",
+      "landmark"
+     ]
+    },
+    "metrics": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "metric",
+       "value",
+       "repo",
+       "is_code"
+      ],
+      "properties": {
+       "metric": {
+        "type": "string",
+        "enum": [
+         "stars_single_repo",
+         "forks_single_repo",
+         "stars_total",
+         "forks_total",
+         "ecosystem_dependency"
+        ]
+       },
+       "value": {
+        "type": "integer"
+       },
+       "repo": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "is_code": {
+        "type": "boolean"
+       }
+      }
+     }
+    },
+    "reach_non_code": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "repo",
+       "stars",
+       "why"
+      ],
+      "properties": {
+       "repo": {
+        "type": "string"
+       },
+       "stars": {
+        "type": "integer"
+       },
+       "why": {
+        "type": "string"
+       }
+      }
+     }
+    },
+    "note": {
+     "type": "string"
+    }
+   }
+  },
+  "headline": {
+   "type": "string"
+  },
+  "evidence": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "against": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "ask_for": {
+   "type": "string"
+  }
+ }
+}

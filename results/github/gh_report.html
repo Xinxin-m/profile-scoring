@@ -1,0 +1,220 @@
+<!doctype html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GitHub Coder Rubric v2: four profiles</title><style>
+:root{--ink:#1a1815;--dim:#6b645c;--faint:#9a9188;--line:#ddd6cb;--paper:#f7f3ec;
+--card:#fffdf9;--green:#2f5d4f;--warn:#a4552e;--mid:#8a7a4e;--gold:#9a7b18}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+font:14px/1.55 "IBM Plex Sans",-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
+.wrap{max-width:1320px;margin:0 auto;padding:34px 26px 80px}
+h1{font:600 27px/1.2 Georgia,serif;margin:0 0 6px}
+h2{font:600 18px/1.3 Georgia,serif;margin:44px 0 4px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+h4{font:600 10.5px/1.3 "IBM Plex Sans";letter-spacing:.07em;text-transform:uppercase;
+color:var(--dim);margin:16px 0 6px}
+p{margin:8px 0;max-width:78ch;color:#3a352f}
+.lede{color:var(--dim);margin:0 0 4px;max-width:84ch}
+table{width:100%;border-collapse:collapse;font-size:13px;background:var(--card)}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:3px;margin-top:12px}
+th,td{padding:6px 10px;text-align:left;border-bottom:1px solid #eee7dc;vertical-align:top}
+thead th{background:#efe9de;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.tot td,tr.tot th{background:#efe9de;font-size:15px}
+.mx{color:var(--faint);font-weight:400}
+td.hi{color:var(--green);font-weight:600} td.mid{color:var(--mid)} td.lo{color:var(--warn)}
+td.tg{font-size:11px;color:var(--dim);line-height:1.5}
+.tier{font-size:11px;letter-spacing:.05em;text-transform:uppercase}
+.t-exceptional,.t-landmark{color:var(--gold);font-weight:600}
+.t-notable{color:var(--mid)} .t-none{color:var(--faint)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(430px,1fr));gap:18px;margin-top:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px 18px}
+.chead{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.who{font:600 19px/1.2 Georgia,serif;color:var(--ink);text-decoration:none}
+.who:hover{color:var(--green)}
+.sub{color:var(--dim);font-size:12px;margin-left:7px}
+.tot b{font:600 26px/1 Georgia,serif;color:var(--green)}
+.tot span{color:var(--faint);font-size:12px}
+.tags{margin:9px 0 4px;display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.tag{border:1px solid var(--line);background:#f2ece1;border-radius:2px;padding:2px 7px;font-size:11px}
+.tag b{margin-left:5px;color:var(--green)}
+.tag.vibe{border-color:var(--warn);color:var(--warn);background:#f7ece6}
+.tag.vibe b{color:var(--warn)}
+.tag.insuf{border-color:var(--warn);background:#f6e8e0;color:var(--warn)}
+.conf{color:var(--faint);font-size:11px;margin-left:auto}
+.head{font-style:italic;color:#3a352f;margin:8px 0 12px}
+.stats{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:11.5px;color:var(--dim);
+padding:9px 0;border-top:1px solid #eee7dc;border-bottom:1px solid #eee7dc;margin-bottom:11px}
+.stats b{color:var(--ink);font-variant-numeric:tabular-nums}
+.cr{display:flex;align-items:center;gap:9px;margin:4px 0;font-size:12px}
+.cl{width:140px;color:var(--dim);flex:none}
+.cbar{flex:1;height:7px;background:#ece5d8;border-radius:4px;overflow:hidden}
+.cbar i{display:block;height:100%;border-radius:4px}
+.cbar .hi{background:var(--green)} .cbar .mid{background:var(--mid)} .cbar .lo{background:var(--warn)}
+.cv{width:46px;text-align:right;font-variant-numeric:tabular-nums;flex:none}
+.cv em{color:var(--faint);font-style:normal;font-size:11px}
+.vibe{margin:12px 0 0;padding:8px 11px;background:#f2ece1;border-radius:3px;font-size:12px;color:var(--dim)}
+.vibe b{color:var(--ink)} .ded{color:var(--warn);font-weight:600}
+.exc{margin-top:10px;padding:10px 12px;border-radius:3px;border:1px solid var(--line);font-size:12px}
+.exc.t-exceptional,.exc.t-landmark{border-color:var(--gold);background:#faf4e2}
+.exc.t-notable{background:#f6f1e6}
+.exc.t-none{background:#f4f1ea;color:var(--dim)}
+.exh{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--dim)}
+.exh b{color:var(--gold)}
+.exc.t-none .exh b{color:var(--faint)}
+.exc ul{margin:6px 0 0;padding-left:18px} .exc li{margin:3px 0}
+.exc code{background:#efe9de;padding:0 4px;border-radius:2px;font-size:11px}
+.exn{margin-top:8px;color:var(--dim);font-size:11px}
+ul.nq li{color:var(--dim)}
+.nc{color:var(--warn);font-size:11px}
+.exnote{margin:7px 0 0;font-size:11.5px;color:var(--dim)}
+table.cls{font-size:11.5px}
+table.cls td{padding:4px 8px 4px 0;border-bottom:1px solid #f2ece1}
+.cn{font-weight:600;white-space:nowrap}
+.cc{white-space:nowrap;font-size:10.5px;letter-spacing:.03em}
+tr.good .cc{color:var(--green)} tr.bad .cc{color:var(--warn)}
+.cw{color:var(--dim)}
+ul.ev{margin:0;padding-left:18px;font-size:12.5px;color:#3a352f}
+ul.ev li{margin:5px 0} ul.ev.ag li{color:var(--warn)}
+.ask,.pre{font-size:12px;color:var(--dim);margin-top:10px}
+.note{background:var(--card);border-left:3px solid var(--green);padding:11px 15px;margin:14px 0}
+.note b{color:var(--green)}
+ul.plain{max-width:80ch} ul.plain li{margin:6px 0}
+code{background:#efe9de;padding:1px 4px;border-radius:2px;font-size:12px}
+</style></head><body><div class="wrap">
+
+<h1>GitHub Coder Rubric v2: four profiles</h1>
+<p class="lede">Judged by codex <code>gpt-5.6-terra</code> at high reasoning effort, the house
+judge. Each account is collected in layers (facts, full inventory, then a deep dive on up to six
+repos picked as a mix of most-starred, largest, oldest-substantial and most-recent-substantial)
+and scored from real source files. v2 is deliberately harsher than v1: every deep-dive repo is
+classified before scoring, coursework and forks cannot buy expertise, levels carry hard caps, and
+reach is reported through a separate exceptional flag instead of being blended into the score.</p>
+
+<h2>Side by side</h2>
+<div class="scroll"><table><thead><tr><th>criterion</th><th class="n">emilkowalski</th><th class="n">addyosmani</th><th class="n">Nutlope</th><th class="n">Xinxin-m</th></tr></thead>
+<tbody><tr><th>Code quality <span class="mx">/25</span></th><td class="n hi">19</td><td class="n hi">20</td><td class="n mid">17</td><td class="n lo">11</td></tr><tr><th>Complexity ceiling <span class="mx">/20</span></th><td class="n hi">16</td><td class="n hi">16</td><td class="n mid">14</td><td class="n mid">11</td></tr><tr><th>Activity &amp; maintenance <span class="mx">/15</span></th><td class="n hi">14</td><td class="n hi">15</td><td class="n hi">15</td><td class="n lo">6</td></tr><tr><th>Pre-AI substance <span class="mx">/15</span></th><td class="n mid">11</td><td class="n hi">14</td><td class="n mid">8</td><td class="n lo">0</td></tr><tr><th>Traction <span class="mx">/10</span></th><td class="n hi">9</td><td class="n hi">8</td><td class="n hi">9</td><td class="n lo">1</td></tr><tr><th>Domain depth <span class="mx">/15</span></th><td class="n hi">13</td><td class="n mid">10</td><td class="n mid">9</td><td class="n lo">5</td></tr><tr><th>Vibe deduction</th><td class="n">0</td><td class="n">-2</td><td class="n">-6</td><td class="n">-8</td></tr><tr class="tot"><th>Total</th><td class="n"><b>82</b></td><td class="n"><b>81</b></td><td class="n"><b>66</b></td><td class="n"><b>26</b></td></tr><tr><th>Exceptional</th><td class="n tier t-exceptional">exceptional</td><td class="n tier t-exceptional">exceptional</td><td class="n tier t-exceptional">exceptional</td><td class="n tier t-none">none</td></tr><tr><th>Tags</th><td class="n tg">frontend L4<br>design-engineering L3</td><td class="n tg">devtools L3<br>frontend L3<br>technical-education L5</td><td class="n tg">devtools L3<br>fullstack L3<br>vibe-coder-ai-apps L3</td><td class="n tg">crypto-web3 L2<br>frontend L2<br>vibe-coder-frontend L2</td></tr></tbody></table></div>
+
+<h2>Computed facts (exact, not judged)</h2>
+<div class="scroll"><table><thead><tr><th>fact</th><th class="n">emilkowalski</th><th class="n">addyosmani</th><th class="n">Nutlope</th><th class="n">Xinxin-m</th></tr></thead>
+<tbody><tr><th>Account age (years)</th><td class="n">8.5</td><td class="n">17</td><td class="n">6.3</td><td class="n">5.4</td></tr><tr><th>Original repos</th><td class="n">3</td><td class="n">181</td><td class="n">86</td><td class="n">10</td></tr><tr><th>Forked repos</th><td class="n">0</td><td class="n">178</td><td class="n">14</td><td class="n">8</td></tr><tr><th>Stars received</th><td class="n">50,115</td><td class="n">149,276</td><td class="n">89,642</td><td class="n">1</td></tr><tr><th>Forks received</th><td class="n">2,419</td><td class="n">15,681</td><td class="n">10,624</td><td class="n">0</td></tr><tr><th>Biggest single repo (stars)</th><td class="n">28,728</td><td class="n">86,681</td><td class="n">24,469</td><td class="n">1</td></tr><tr><th>Public commits</th><td class="n">486</td><td class="n">12,881</td><td class="n">2,741</td><td class="n">34</td></tr><tr><th>Commits before Copilot (Jun 2021)</th><td class="n">2</td><td class="n">11,752</td><td class="n">135</td><td class="n">0</td></tr><tr><th>Commits through ChatGPT (Nov 2022)</th><td class="n">2</td><td class="n">11,895</td><td class="n">1,033</td><td class="n">0</td></tr><tr><th>Repos created pre-ChatGPT</th><td class="n">0</td><td class="n">146</td><td class="n">33</td><td class="n">0</td></tr><tr><th>Years with 20+ commits</th><td class="n">4</td><td class="n">17</td><td class="n">7</td><td class="n">1</td></tr></tbody></table></div>
+<div class="note"><b>Read these with care.</b> Public commit counts miss anything committed with
+an unlinked email, everything in private and employer repositories, and non-default branches. A
+low number is weak evidence, not proof. Repo size is not code size either: a 45MB repo at a
+vendored fraction of 0.99 is a committed build directory, which says something about hygiene and
+nothing about volume of work.</div>
+
+<h2>Profiles</h2>
+<div class="cards">
+<div class="card">
+  <div class="chead">
+    <div><a class="who" href="https://github.com/emilkowalski">emilkowalski</a>
+      <span class="sub">Emil Kowalski</span></div>
+    <div class="tot"><b>82</b><span>/100</span></div>
+  </div>
+  <div class="tags"><span class="tag ">frontend<b>L4</b></span><span class="tag ">design-engineering<b>L3</b></span><span class="conf">confidence: high</span></div>
+  <p class="head">A strong frontend library engineer, especially in interaction-heavy React components, with demonstrated ecosystem adoption.</p>
+  <div class="stats">
+    <span><b>8.5y</b> account</span>
+    <span><b>3</b> original repos</span>
+    <span><b>50,115</b> stars</span>
+    <span><b>2,419</b> forks</span>
+    <span><b>486</b> commits</span>
+    <span><b>2</b> pre-ChatGPT</span>
+    <span><b>4</b> active years</span>
+  </div>
+  <div class="cr"><span class="cl">Code quality</span><span class="cbar"><i class="hi" style="width:76%"></i></span><span class="cv">19<em>/25</em></span></div><div class="cr"><span class="cl">Complexity ceiling</span><span class="cbar"><i class="hi" style="width:80%"></i></span><span class="cv">16<em>/20</em></span></div><div class="cr"><span class="cl">Activity &amp; maintenance</span><span class="cbar"><i class="hi" style="width:93%"></i></span><span class="cv">14<em>/15</em></span></div><div class="cr"><span class="cl">Pre-AI substance</span><span class="cbar"><i class="mid" style="width:73%"></i></span><span class="cv">11<em>/15</em></span></div><div class="cr"><span class="cl">Traction</span><span class="cbar"><i class="hi" style="width:90%"></i></span><span class="cv">9<em>/10</em></span></div><div class="cr"><span class="cl">Domain depth</span><span class="cbar"><i class="hi" style="width:87%"></i></span><span class="cv">13<em>/15</em></span></div>
+  <div class="vibe"><b>0%</b> of the footprint reads as one-shot generated
+    work &nbsp;<span class="ded">0 pts</span></div>
+  <div class="exc t-exceptional"><div class="exh">exceptional flag: <b>exceptional</b></div><ul><li><code>stars_single_repo</code> <b>12,835</b> on <b>sonner</b></li></ul><div class="exn">Reach that does not qualify as engineering:</div><ul class="nq"><li><b>skills</b> 28,728 stars, excluded: Markdown guidance and prompt/agent skills rather than an engineering artifact.</li></ul><p class="exnote">Sonner&#x27;s 12,835 stars, 456 forks, 341 PRs, and 37 releases demonstrate substantial adoption of a code library; the stronger fork signal is meaningful even though it is below the exceptional fork threshold.</p></div>
+  <h4>Repos, classified before scoring</h4>
+  <table class="cls"><tbody><tr class="good"><td class="cn">sonner</td><td class="cc">original-engineering</td><td class="cw">A maintained, typed React toast library with its own state model, behavior tests, releases, and external contributions.</td></tr><tr class="good"><td class="cn">vaul</td><td class="cc">original-engineering</td><td class="cw">A typed React drawer implementation with gesture, snap-point, modal, and nested-drawer behavior beyond framework scaffolding.</td></tr><tr class="bad"><td class="cn">skills</td><td class="cc">curation-docs</td><td class="cw">Markdown-only design and agent guidance; it contains no authored source files.</td></tr></tbody></table>
+  <h4>Evidence for</h4><ul class="ev"><li>sonner/src/state.ts implements a bounded toast history, subscriber replay, pending-dismissal cancellation, and same-ID update semantics, with comments documenting StrictMode and lifecycle edge cases.</li><li>sonner/test/tests/basic.spec.ts contains behavioral Playwright coverage for timeout, rejection/unwrap behavior, custom content, and swipe dismissal; sonner also has CI and 37 releases across 1,264 days.</li><li>sonner/src/index.tsx is a substantial 30,900-byte typed interaction component; the dossier records 332 commits, 433 issues, 341 PRs, and follow-up fixes through 2026-08-10.</li><li>vaul/src/index.tsx is a 38,337-byte typed drawer implementation exposing controlled state, gesture thresholds, snap points, nesting, modal behavior, scroll/keyboard handling, and directionality; its commit history includes concrete Safari, Firefox, transform, and initialization fixes.</li><li>The two code repositories account for 21,387 stars and 816 forks; Sonner alone has 12,835 stars and 456 forks, while Vaul has 8,552 stars and 360 forks.</li></ul>
+  <h4>Against</h4><ul class="ev ag"><li>All public original repositories postdate the November 2022 cutoff; the pre-AI score therefore uses substitute evidence from detailed stateful code, tests, and incremental maintenance rather than direct pre-AI history.</li><li>The main implementation files are very large (Sonner src/index.tsx at 30,900 bytes and Vaul src/index.tsx at 38,337 bytes), indicating some concentration of concerns rather than uniformly small module boundaries.</li><li>Vaul is explicitly marked unmaintained in its README, and its last push was 2025-10-03.</li></ul>
+  <p class="ask"><b>To confirm or raise:</b> Pre-2023 public code or a representative private/employer code sample with review history would independently confirm the unassisted, pre-AI dimension; package dependent or download data would further substantiate adoption.</p>
+  <p class="pre"><b>Pre-AI:</b> scored on substitute evidence, since the account postdates the cutoffs.</p>
+</div>
+<div class="card">
+  <div class="chead">
+    <div><a class="who" href="https://github.com/addyosmani">addyosmani</a>
+      <span class="sub">Addy Osmani &middot; Google</span></div>
+    <div class="tot"><b>81</b><span>/100</span></div>
+  </div>
+  <div class="tags"><span class="tag ">devtools<b>L3</b></span><span class="tag ">frontend<b>L3</b></span><span class="tag ">technical-education<b>L5</b></span><span class="conf">confidence: high</span></div>
+  <p class="head">Long-tenured frontend-performance tool builder and field-visible technical educator; Critical is the strongest direct coding evidence.</p>
+  <div class="stats">
+    <span><b>17.0y</b> account</span>
+    <span><b>181</b> original repos</span>
+    <span><b>149,276</b> stars</span>
+    <span><b>15,681</b> forks</span>
+    <span><b>12,881</b> commits</span>
+    <span><b>11,895</b> pre-ChatGPT</span>
+    <span><b>17</b> active years</span>
+  </div>
+  <div class="cr"><span class="cl">Code quality</span><span class="cbar"><i class="hi" style="width:80%"></i></span><span class="cv">20<em>/25</em></span></div><div class="cr"><span class="cl">Complexity ceiling</span><span class="cbar"><i class="hi" style="width:80%"></i></span><span class="cv">16<em>/20</em></span></div><div class="cr"><span class="cl">Activity &amp; maintenance</span><span class="cbar"><i class="hi" style="width:100%"></i></span><span class="cv">15<em>/15</em></span></div><div class="cr"><span class="cl">Pre-AI substance</span><span class="cbar"><i class="hi" style="width:93%"></i></span><span class="cv">14<em>/15</em></span></div><div class="cr"><span class="cl">Traction</span><span class="cbar"><i class="hi" style="width:80%"></i></span><span class="cv">8<em>/10</em></span></div><div class="cr"><span class="cl">Domain depth</span><span class="cbar"><i class="mid" style="width:67%"></i></span><span class="cv">10<em>/15</em></span></div>
+  <div class="vibe"><b>10%</b> of the footprint reads as one-shot generated
+    work &nbsp;<span class="ded">-2 pts</span></div>
+  <div class="exc t-exceptional"><div class="exh">exceptional flag: <b>exceptional</b></div><ul><li><code>stars_single_repo</code> <b>10,253</b> on <b>critical</b></li></ul><div class="exn">Reach that does not qualify as engineering:</div><ul class="nq"><li><b>agent-skills</b> 86,681 stars, excluded: A Markdown skill/workflow collection with supporting scripts, not primarily an engineering artifact.</li><li><b>backbone-fundamentals</b> 9,179 stars, excluded: A technical book, not an engineering artifact.</li><li><b>essential-js-design-patterns</b> 4,907 stars, excluded: A design-patterns book/documentation repository, not an engineering artifact.</li></ul><p class="exnote">Critical&#x27;s 10,253 stars demonstrate exceptional adoption of a code tool; the account&#x27;s much larger documentation reach is reported separately.</p></div>
+  <h4>Repos, classified before scoring</h4>
+  <table class="cls"><tbody><tr class="good"><td class="cn">critical</td><td class="cc">original-engineering</td><td class="cw">A long-lived, original CSS critical-path extraction tool with a modular API, CLI, two execution engines, tests, releases, and maintenance history.</td></tr><tr class="bad"><td class="cn">jquery-roundrr</td><td class="cc">fork-derivative</td><td class="cw">The plugin explicitly states it extends Nirvana Tikku&#x27;s RadMenu, so only its visible modifications can be credited.</td></tr><tr class="bad"><td class="cn">agent-skills</td><td class="cc">curation-docs</td><td class="cw">The primary artifact is a Markdown workflow/skill collection; its small validation and eval scripts support documentation rather than constitute the product.</td></tr><tr class="bad"><td class="cn">backbone-fundamentals</td><td class="cc">curation-docs</td><td class="cw">An open-source Backbone.js book whose practical examples support a technical-education artifact.</td></tr><tr class="bad"><td class="cn">ctw</td><td class="cc">generated-oneshot</td><td class="cw">A conference-talk asset dump: five commits in 40 days, including a 2.26M-line import, with most content vendored.</td></tr><tr class="bad"><td class="cn">fitc-wccdt</td><td class="cc">generated-oneshot</td><td class="cw">A presentation repository largely appearing in a 786,846-line upload over a 16-day lifespan.</td></tr></tbody></table>
+  <h4>Evidence for</h4><ul class="ev"><li>critical has 738 commits across 4,418 days, 76 releases, 364 issues, 254 PRs, 10,253 stars, and 386 forks.</li><li>critical/src/index.js separates loading, engine routing, extraction, finalization, and HTML inlining while returning deterministic structured diagnostics.</li><li>critical/src/css.js preserves CSS correctness concerns such as selector-level survival, animation-keyframe reachability, malformed-rule recovery, and conservative handling of unsupported selectors.</li><li>critical/test/cli.test.js and critical/test/source.test.js exercise behavior end-to-end and preserve regressions around CLI output, data URIs, query/hash stylesheet paths, and document base resolution.</li><li>The account has 11,752 public commits before Copilot, 14,895 through ChatGPT launch, and 17 years with at least 20 commits.</li><li>backbone-fundamentals (9,179 stars/1,370 forks) and essential-js-design-patterns (4,907 stars/804 forks) support the L5 technical-education tag, not an engineering-traction claim.</li></ul>
+  <h4>Against</h4><ul class="ev ag"><li>The latest listed Critical v9 rewrite and much of its recent test work are attributed to bezoerb, so the dossier does not isolate Addy&#x27;s authorship of every current implementation decision.</li><li>agent-skills has 86,681 stars and 9,312 forks but is principally a workflow/documentation collection; its reach cannot raise coding traction or complexity.</li><li>ctw and fitc-wccdt are very large but heavily vendored, short-lived presentation dumps rather than evidence of systems engineering.</li><li>jquery-roundrr has no tests or CI and is explicitly a RadMenu derivative, so it cannot establish independent frontend-system depth.</li></ul>
+  <p class="ask"><b>To confirm or raise:</b> A pre-v9 Critical commit history or focused code sample showing Addy&#x27;s own design, debugging, and performance tradeoffs would confirm whether the devtools/front-end tags should rise beyond the one-project L3 cap.</p>
+  <p class="pre"><b>Pre-AI:</b> scored directly against the cutoffs.</p>
+</div>
+<div class="card">
+  <div class="chead">
+    <div><a class="who" href="https://github.com/Nutlope">Nutlope</a>
+      <span class="sub">Hassan El Mghari</span></div>
+    <div class="tot"><b>66</b><span>/100</span></div>
+  </div>
+  <div class="tags"><span class="tag ">devtools<b>L3</b></span><span class="tag ">fullstack<b>L3</b></span><span class="tag vibe">vibe-coder-ai-apps<b>L3</b></span><span class="conf">confidence: high</span></div>
+  <p class="head">A prolific AI-product and developer-tool builder with one mature CLI, strong distribution, and uneven evidence of personally authored deep systems work.</p>
+  <div class="stats">
+    <span><b>6.3y</b> account</span>
+    <span><b>86</b> original repos</span>
+    <span><b>89,642</b> stars</span>
+    <span><b>10,624</b> forks</span>
+    <span><b>2,741</b> commits</span>
+    <span><b>1,033</b> pre-ChatGPT</span>
+    <span><b>7</b> active years</span>
+  </div>
+  <div class="cr"><span class="cl">Code quality</span><span class="cbar"><i class="mid" style="width:68%"></i></span><span class="cv">17<em>/25</em></span></div><div class="cr"><span class="cl">Complexity ceiling</span><span class="cbar"><i class="mid" style="width:70%"></i></span><span class="cv">14<em>/20</em></span></div><div class="cr"><span class="cl">Activity &amp; maintenance</span><span class="cbar"><i class="hi" style="width:100%"></i></span><span class="cv">15<em>/15</em></span></div><div class="cr"><span class="cl">Pre-AI substance</span><span class="cbar"><i class="mid" style="width:53%"></i></span><span class="cv">8<em>/15</em></span></div><div class="cr"><span class="cl">Traction</span><span class="cbar"><i class="hi" style="width:90%"></i></span><span class="cv">9<em>/10</em></span></div><div class="cr"><span class="cl">Domain depth</span><span class="cbar"><i class="mid" style="width:60%"></i></span><span class="cv">9<em>/15</em></span></div>
+  <div class="vibe"><b>40%</b> of the footprint reads as one-shot generated
+    work &nbsp;<span class="ded">-6 pts</span></div>
+  <div class="exc t-exceptional"><div class="exh">exceptional flag: <b>exceptional</b></div><ul><li><code>stars_single_repo</code> <b>10,666</b> on <b>roomGPT</b></li><li><code>forks_single_repo</code> <b>1,497</b> on <b>roomGPT</b></li></ul><div class="exn">Reach that does not qualify as engineering:</div><ul class="nq"><li><b>hallmark</b> 24,469 stars, excluded: The primary deliverable is design guidance/skill documentation, not an engineering artifact.</li></ul><p class="exnote">roomGPT&#x27;s forks and stars show exceptional distribution of a reusable code project; they do not by themselves establish difficult systems engineering.</p></div>
+  <h4>Repos, classified before scoring</h4>
+  <table class="cls"><tbody><tr class="good"><td class="cn">aicommits</td><td class="cc">original-engineering</td><td class="cw">A maintained, multi-provider CLI with release, test, and extension surfaces.</td></tr><tr class="good"><td class="cn">togetherlink</td><td class="cc">original-engineering</td><td class="cw">A multi-package local proxy/daemon system, though visible recent implementation is substantially co-authored.</td></tr><tr class="good"><td class="cn">roomGPT</td><td class="cc">original-small</td><td class="cw">An original, single-purpose Next.js image-generation integration with a visible 144-commit development history.</td></tr><tr class="good"><td class="cn">covid-classifier</td><td class="cc">original-small</td><td class="cw">A small original challenge submission using standard k-NN/CNN library workflows, not a course repository.</td></tr><tr class="bad"><td class="cn">covid-tracker</td><td class="cc">tutorial-follow</td><td class="cw">Its README explicitly says it is based on Adrian Hajdin&#x27;s video tutorial.</td></tr><tr class="bad"><td class="cn">hallmark</td><td class="cc">curation-docs</td><td class="cw">The core artifact is a Markdown design-skill/ruleset; the included static showcase site is supporting documentation rather than an engineering system.</td></tr></tbody></table>
+  <h4>Evidence for</h4><ul class="ev"><li>aicommits/src/feature/generate-commit-message.ts imposes explicit diff, path, time, model-call, and agent-step budgets; tests/specs/generate-commit-message.ts exercises staged-versus-unstaged isolation and mocked provider flows.</li><li>aicommits has 372 commits, 67 releases, CI, tests, and was maintained from February 2023 through August 2026; it has 9,090 stars and 476 forks.</li><li>roomGPT has 144 commits over 469 days and 10,666 stars / 1,497 forks; app/generate/route.ts includes server-side rate limiting and an asynchronous Replicate prediction lifecycle.</li><li>togetherlink/packages/cli/src/lib/daemon/server.ts handles a local HTTP/WebSocket daemon, session lifecycle, health probing, port races, and proxy routes; its 289-commit, typed, CI-tested repository includes compatibility and benchmark tests.</li><li>The account has 2,741 public commits across seven active years and 1,033 through the November 2022 cutoff, providing meaningful pre-ChatGPT development history.</li></ul>
+  <h4>Against</h4><ul class="ev ag"><li>roomGPT/app/generate/route.ts has an unbounded polling loop and weak response validation, while app/dream/page.tsx lacks a protective error/finally path; the repository has neither tests nor CI.</li><li>covid-classifier has 12 commits and 99% vendored content; nn_classifier.py evaluates on its training data, while covid-tracker is explicitly tutorial-followed, so the visible pre-AI code is not strong ML evidence.</li><li>The recent substantial changes shown for both aicommits and togetherlink are credited to riccardogiorato; togetherlink&#x27;s README names two authors, limiting confidence that its current proxy architecture is Hassan&#x27;s personal implementation.</li></ul>
+  <p class="ask"><b>To confirm or raise:</b> A commit-authorship breakdown or representative pre-2023 production code, plus direct evidence of Hassan&#x27;s implementation role in aicommits and togetherlink, would confirm or raise the systems/devtools judgment.</p>
+  <p class="pre"><b>Pre-AI:</b> scored directly against the cutoffs.</p>
+</div>
+<div class="card">
+  <div class="chead">
+    <div><a class="who" href="https://github.com/Xinxin-m">Xinxin-m</a>
+      <span class="sub"></span></div>
+    <div class="tot"><b>26</b><span>/100</span></div>
+  </div>
+  <div class="tags"><span class="tag ">crypto-web3<b>L2</b></span><span class="tag ">frontend<b>L2</b></span><span class="tag vibe">vibe-coder-frontend<b>L2</b></span><span class="conf">confidence: medium</span></div>
+  <p class="head">An early-stage builder with one credible crypto-analysis project, alongside a public footprint dominated by course work and imported one-shot frontend artifacts.</p>
+  <div class="stats">
+    <span><b>5.4y</b> account</span>
+    <span><b>10</b> original repos</span>
+    <span><b>1</b> stars</span>
+    <span><b>0</b> forks</span>
+    <span><b>34</b> commits</span>
+    <span><b>0</b> pre-ChatGPT</span>
+    <span><b>1</b> active years</span>
+  </div>
+  <div class="cr"><span class="cl">Code quality</span><span class="cbar"><i class="lo" style="width:44%"></i></span><span class="cv">11<em>/25</em></span></div><div class="cr"><span class="cl">Complexity ceiling</span><span class="cbar"><i class="mid" style="width:55%"></i></span><span class="cv">11<em>/20</em></span></div><div class="cr"><span class="cl">Activity &amp; maintenance</span><span class="cbar"><i class="lo" style="width:40%"></i></span><span class="cv">6<em>/15</em></span></div><div class="cr"><span class="cl">Pre-AI substance</span><span class="cbar"><i class="lo" style="width:0%"></i></span><span class="cv">0<em>/15</em></span></div><div class="cr"><span class="cl">Traction</span><span class="cbar"><i class="lo" style="width:10%"></i></span><span class="cv">1<em>/10</em></span></div><div class="cr"><span class="cl">Domain depth</span><span class="cbar"><i class="lo" style="width:33%"></i></span><span class="cv">5<em>/15</em></span></div>
+  <div class="vibe"><b>55%</b> of the footprint reads as one-shot generated
+    work &nbsp;<span class="ded">-8 pts</span></div>
+  <div class="exc t-none"><div class="exh">exceptional flag: <b>none</b></div><p class="exnote">No original code repository has meaningful adoption: 1 total star and 0 forks received.</p></div>
+  <h4>Repos, classified before scoring</h4>
+  <table class="cls"><tbody><tr class="good"><td class="cn">crypto-technical-analysis</td><td class="cc">original-engineering</td><td class="cw">Three incremental commits build a custom data pipeline, chart frontend, replay mode, and support/resistance detector.</td></tr><tr class="bad"><td class="cn">CS238-RL-project</td><td class="cc">coursework</td><td class="cw">The repository identifies itself as a Stanford CS238 final-project submission and includes credited third-party LOB code.</td></tr><tr class="bad"><td class="cn">challengr-v2</td><td class="cc">template-scaffold</td><td class="cw">A Vite/shadcn-style frontend with extensive mock data sits atop a 0.99-vendored initial import.</td></tr><tr class="bad"><td class="cn">consulting</td><td class="cc">generated-oneshot</td><td class="cw">A 1,390,601-line initial commit and 0.99 vendored fraction were followed only by same-day style edits.</td></tr><tr class="bad"><td class="cn">ff2</td><td class="cc">generated-oneshot</td><td class="cw">A finished 19,756-line research artifact was deposited in one commit with no visible development history.</td></tr></tbody></table>
+  <h4>Evidence for</h4><ul class="ev"><li>`crypto-technical-analysis/server/data_service.py` separates symbol loading, CSV normalization, resampling, paginated Binance retrieval, and incremental-update helpers; `binance_api/download_history.py` implements a thread-safe weighted rate limiter.</li><li>`crypto-technical-analysis/support_resistance.py` defines domain-specific `SRParams`, `HorizontalZone`, `TrendLine`, `TrianglePattern`, and `ConsolidationZone` models rather than merely drawing API data.</li><li>`crypto-technical-analysis` shows an actual three-commit iteration over 2026-01-27 to 2026-01-30, including the explicit follow-up “plotting too many lines, logic needs to…” commit.</li><li>`CS238-RL-project` is explicitly labeled “Stanford CS238 Final Project”; `mc_model/environments/mc_lob_simulation_class.py` and `lob_utils/lob_functions.py` credit Hanna Hultin, so its sophisticated RL/LOB code cannot establish personal ML or systems depth.</li><li>The account has 34 public commits total, with activity in 2024–2026 but 0 commits before both the June 2021 Copilot and November 2022 ChatGPT cutoffs.</li></ul>
+  <h4>Against</h4><ul class="ev ag"><li>`consulting` was created and last pushed on 2025-09-09: its 1,390,601-line initial commit, 0.99 vendored fraction, and Figma-derived README do not demonstrate an engineering process.</li><li>`ff2` is a 680,703KB one-commit repository; its complete 19,756-line initial import provides no authorship or maintenance trail.</li><li>`crypto-technical-analysis` has only 3 commits over 3 days and reports no tests or CI; its FastAPI endpoints in `server/app.py` also duplicate validation and expose broad exception messages.</li></ul>
+  <p class="ask"><b>To confirm or raise:</b> A maintained, non-course original project with tests, CI, issue/bug-fix history, and a public commit trail would most raise confidence; a focused code sample showing the design and validation of the pattern detector would confirm the crypto-analysis specialization.</p>
+  <p class="pre"><b>Pre-AI:</b> scored directly against the cutoffs.</p>
+</div></div>
+
+</div></body></html>
